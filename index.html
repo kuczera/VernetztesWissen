@@ -180,365 +180,55 @@
               </p>
           </div>
             <div class="step">
-                <h2>Vernetzung konkret</h3>
+                <h2>Chancen und digitale Quellenkritik</h2>
+                 <h3>Graf Robert II. von Flandern und Herzog Heinrich von Niederlothringen</h3>
                   <p>
-                    <figure> <a href="resources/img/02-04-Regest-mit-Entitäten.png"><img
-                      src="resources/img/02-04-Regest-mit-Entitäten.png"
+                    <figure> <a href="resources/img/03-03-Robert-und-Heinrich.png"><img
+                      src="resources/img/03-03-Robert-und-Heinrich.png"
                       alt=""></a>
                     </figure>
                   </p>
               </div>
-
-
-        <div class="step">
-            <h2>Definitionen</h2>
-            <blockquote class="justify" lang="de">
-              Eine Graphdatenbank (oder graphenorientierte Datenbank) ist eine Datenbank, die Graphen benutzt, um stark vernetzte Informationen darzustellen und abzuspeichern. Ein solcher Graph besteht aus Knoten und Kanten, den Verbindungen zwischen den Knoten. Die zwei bekanntesten Konzepte für Graphdatenbanken sind das Resource Description Framework (RDF) und Labeled-Property Graph (LPG).
-            </blockquote>
-            <p class="x-small down-25">
-                Quelle:
-                <a href="https://de.wikipedia.org/wiki/Graphdatenbank">
-                     https://de.wikipedia.org/wiki/Graphdatenbank
-                </a>
-            </p>
-          </div>
-
-          <div class="step">
-            <h2>Definitionen</h2>
-            <blockquote class="justify down-50" lang="de">
-              Die Entwicklung von Graphdatenbanken rührt von dem Bedürfnis her, reale Sachverhalte in Datenbanken zu speichern, ohne künstliche Konstrukte zu erzeugen (z. B. Primär-Fremdschlüssel, Relationstabellen) oder die Informationen aufzuteilen (z. B. in die Dritte Normalform). Mit Graphdatenbanken sollen Objekte und deren Beziehungen untereinander in „natürlicher“ Art und Weise zusammengehörig gespeichert werden. Dabei entsteht eine Vernetzung der Daten, die unserem Denken ähnlich ist, in dem Objekte (z. B. Personen, Mitarbeiter) in Beziehung zu uns anderen bekannten Objekten (z. B. Familie, Firma) gesetzt werden.
-            </blockquote>
-            <p class="x-small down-25">
-                Quelle: <a href="http://www.datenbanken-verstehen.de/lexikon/graphdatenbanken/">
-                     http://www.datenbanken-verstehen.de/lexikon/graphdatenbanken/
-                </a>
-            </p>
-          </div>
-
-        <div class="step">
-            <h2>Vernetztes Wissen</h2>
-            <h3 class="red up-25">
-                Briefnetzwerke
-            </h3>
-            <div class="row">
-              <div class="six columns first">
-              Briefwechsel im Graphen
-              <figure class="mfp-lightbox"><a href="resources/img/AugustinusBeispiel1.svg"><img
-                      src="resources/img/AugustinusBeispiel1.svg"
-                      alt="Netzwerkschema eines Briefwechsels"></a>
-              </figure>
-              <p class="x-small down">
-                Projektwebseite: <a href="http://www.adwmainz.de/projekte/augustinus-lexikon/beschreibung.html">http://www.adwmainz.de/projekte/augustinus-lexikon/beschreibung.html
-                </a> | <a href="resources/img/AugustinusBeispiel2.svg">Beispiel 2</a>
-              </p>
-            </div>
-
-            <div class="six columns last">
-                            <ul class="even-left medium">
-                                <li>
-                                    Datenbank mit 314 Briefen
-                                </li>
-                                <li>
-                                    strukturiert erschlossen über 17 Schlüsselwörter
-                                </li>
-                                <li>
-                                    mit 200 erschlossenen Personen
-                                </li>
-                                <li>
-<pre><code class="linenumbers js">MATCH (p1:Person {name:'Augustinus'})<-[r1:SENDER|RECEIVER]-(l:Letter)-[r2:SENDER|RECEIVER]->(p2:Person)
-MATCH (l)-[k1:KEYWORD]->(k:Keyword)
-RETURN p1.name AS name1, count(r1) AS Anzahl,
-p2.name AS Name2, COLLECT(DISTINCT k.name) AS Keywords
-ORDER BY Anzahl DESC;</code></pre>
-                               </li>
-                            </ul>
-                            <p class="right">
-                              <a href=http://134.176.70.65:12070/browser/>
-                                  <div class="row">
-                                      <div class="four columns">
-                                          <img class="pull-up" src="resources/img/neo4j_logo.svg"/>
-                                      </div>
-                                  </div>
-                              </a>
-                            </p>
-                        </div>
-                  </div>
-            </div>
-
-            <div class="step">
-                <h2>Vernetztes Wissen</h2>
-                <h3 class="red up-25">
-
-                </h3>
-                <div class="row">
-                  <div class="six columns first">
-                  Nomen et Gens - Verwandtschaft im Graphen
-                  <figure class="mfp-lightbox"><a href="resources/img/NomenEtGensBeispiel1.svg"><img
-                          src="resources/img/NomenEtGensBeispiel1.svg"
-                          alt="Nomen et Gens"></a>
-                  </figure>
-                  <p class="x-small down">
-                    Projektwebseite: <a href="http://www.neg.uni-tuebingen.de/?q=de">http://www.neg.uni-tuebingen.de
-                    </a>
-                  </p>
-                </div>
-
-                <div class="six columns last">
-                                <ul class="even-left medium">
-                                    <li>
-                                      <li>
-                                        Das Projekt sammelt schriftlich belegte Personen von 400 bis 800 n. Chr.
-                                      </li>
-                                      <li>
-                                        U.a. werden die Belege und weitere Informationen zu den Personen gesammelt
-                                      </li>
-                                      <li>
-                                        Im <a href="resources/img/020-Verwandschaften.jpg">Beispielgraph</a> wurden Personen und Verwandtschaft modelliert. Quellen und Belege wurden in einem weiteren Bearbeitungsschritt hinzugefügt.
-                                      </li>
-                                      <li>
-                                        <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/NomenEtGens.html">Präsentation</a>
-                                      </li>
-<pre><code class="linenumbers js">// Pippin II.
-MATCH (P:Person {nid:'7212'})
-RETURN *;</code></pre>
-                                   </li>
-                                </ul>
-                                <p class="right">
-                                  <a href=http://134.176.70.65:10075/browser/>
-                                      <div class="row">
-                                          <div class="four columns">
-                                              <img class="pull-up" src="resources/img/neo4j_logo.svg"/>
-                                          </div>
-                                      </div>
-                                  </a>
-                                </p>
-                            </div>
-                      </div>
-                </div>
-
-                <div class="step">
-                    <h2>Vernetztes Wissen</h2>
-                    <h3 class="red up-25">
-
-                    </h3>
-                    <div class="row">
-                      <div class="six columns first">
-                      Regesta Imperii
-                      <figure class="mfp-lightbox"><a href="resources/img/ReggH4-1289.svg"><img
-                              src="resources/img/ReggH4-1289.svg"
-                              alt="Regesta Imperii"></a>
+              <div class="step">
+                  <h2>Chancen und digitale Quellenkritik</h2>
+                   <h3>Graf Robert II. von Flandern und Herzog Heinrich von Niederlothringen mit Regesten</h3>
+                    <p>
+                      <figure> <a href="resources/03-04-Robert-und-Heinrich.png"><img
+                        src="resources/img/03-04-Robert-und-Heinrich.png"
+                        alt=""></a>
                       </figure>
-                      <p class="x-small down">
-                        Projektwebseite: <a href="http://www.regesta-imperii.de">http://www.regesta-imperii.de
-                        </a> | <a href="resources/img/ReggF3-WikidataPersons.svg">Graphschema</a>
-                      </p>
-                    </div>
-
-                    <div class="six columns last">
-                                    <ul class="even-left medium">
-                                          <li>
-                                            Die Regesta Imperii bieten deutschsprachige Zusammenfassungen (<a href="http://www.regesta-imperii.de/id/cf75356b-bd0d-4a67-8aeb-3ae27d1dcefa">Regest</a>) der rechtlich relevanten Inhalte von Kaiser-, König und Papsturkunden
-                                          </li>
-                                          <li>
-                                            Wurde 1829 vom Frankfurter Stadtbibliothekar Johann Friedrich Böhmer begründet
-                                          </li>
-                                          <li>
-                                            Inzwischen über 180.000 Regesten im Volltext online verfügbar
-                                          </li>
-                                          <li>
-                                            Register werden sukzessive digital aufgearbeitet und eingebunden (<a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/bilder/RI-Regest-im-Graphen.png">Beispiel 1</a>, <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/bilder/Regesten-Graph-Beispiel.png">Beispiel 2</a>).
-                                          </li>
-                                          <li>
-<pre><code class="linenumbers js">// Robert II. von Flandern mit Netzwerk
-MATCH (n:IndexPerson)-[:PERSON_IN]->(r:Regesta)<-[:PERSON_IN]-(m:IndexPerson)
-WHERE n.registerId = 'H4P01822'
-RETURN *;</code></pre>
-                                          </li>
-                                          <li>
-                                            <a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/RI.html">Beispielpräsentation mit den Regesten Kaiser Heinrichs IV.</a>
-                                          </li>
-                                      </ul>
-                                    <p class="right">
-                                      <a href=http://134.176.70.65:10200/browser/>
-                                          <div class="row">
-                                              <div class="four columns">
-                                                  <img class="pull-up" src="resources/img/neo4j_logo.svg"/>
-                                              </div>
-                                          </div>
-                                      </a>
-                                    </p>
-                                </div>
-                          </div>
-                    </div>
-
-                    <div class="step">
-                      <h2>Vernetztes Wissen</h2>
-                        <h3 class="red up-25">
-                        </h3>
-                        <div class="row">
-                          <div class="six columns first">
-                            <a href="resources/img/Meleager-Ident.png" title="ReGroup - Identified Entities">
-                                <img class="pull-up" src="resources/img/Meleager-Ident.png" width="100%" />
-                            </a>
-                            <a href="resources/img/Meleager-Graph.png" title="ReGroup - Graphmodell">
-                                <img class="pull-up" src="resources/img/Meleager-Graph.png" width="100%" />
-                            </a>
-                            <a href="resources/img/Meleager, Hunt for the Boar, sortiert.JPG" title="ReGroup - Jagd auf den kaledonischen Eber">
-                                <img class="pull-up" src="resources/img/Meleager, Hunt for the Boar, sortiert.JPG" width="100%" />
-                            </a>
-                          </div>
-                        <div class="six columns last">
-                          <h5><strong>ReGroup</strong></h5>
-                            <ul class="even-left medium">
-                                <li>
-                                    In Projekt ReGroup werden Graphtechnologien zur Modellierung bildwissenschaftlicher Fragestellungen eingesetzt
-                                </li>
-                                <li>
-                                    Darstellungen von Figurengruppen in der römisch-kaiserzeitlichen Skulptur, z.B. Sarkophage oder figürliche Brunnen
-                                </li>
-                                <li>
-                                    Die digitale Graphanalyse wird mit den Funktionsweisen von drei analogen Methoden der Bilduntersuchung verglichen: Ikonographie, Semiotik, Bildwissenschaft
-                                </li>
-                                <li>
-                                    Im Graph werden die Figuren mit ihren Eigenschaften und ihrem Kontext modelliert.
-                                </li>
-                                <li>
-                                  Damit werden diese Informationen für Maschinen auswertbar und vergleichbar und bestände- und datenbankübergreifende Abfragen möglich
-                                </li>
-                                <li>
-<pre><code class="linenumbers js">MATCH (n1:IdentifiedScene {ISID:'3'})--(n2)--(n3)--(n4) RETURN *;</code></pre>
-                              </li>
-                            </ul>
-                            <p class="right">
-                              <a href=http://134.176.70.65:11070/browser/>
-                                  <div class="row">
-                                      <div class="three columns">
-                                          <img class="pull-up" src="resources/img/neo4j_logo.svg"/>
-                                      </div>
-                                  </div>
-                              </a> | <a href="resources/img/realOnline.png">Real online</a> (<a href="http://webdoc.sub.gwdg.de/pub/mon/dariah-de/dwp-2019-31.pdf">Quelle</a>, S. 20)
-                            </p>
-                        </div>
-                  </div>
+                    </p>
                 </div>
-
-                <div class="step">
-                  <h2>Vernetztes Wissen</h2>
-                    <h3 class="red up-25">
-                    </h3>
-                    <div class="row">
-                      <div class="six columns first">
-                        <a href="resources/img/DTA-Bf-im-Graphen.png" title="Text as a Graph">
-                                <img class="pull-up" src="resources/img/DTA-Bf-im-Graphen.png" width="100%" />
-                        </a>
-                        <a href="resources/img/DTA-Ergebnis-Graphrefactoring.png" title="Text as a Graph">
-                                    <img class="pull-up" src="resources/img/DTA-Ergebnis-Graphrefactoring.png" width="100%" />
-                        </a>
-                        <p class="x-small down">
-                                Website: <a href="https://argimenes.github.io/standoff-properties-editor/">SPEEDy</a>
+                  <div class="step">
+                      <h2>Chancen und digitale Quellenkritik</h2>
+                       <h3>Graf Robert II. von Flandern und Herzog Heinrich von Niederlothringen mit Regesten in den Kanten</h3>
+                        <p>
+                          <figure> <a href="resources/04-01-apoc.png"><img
+                            src="resources/img/04-01-apoc.png"
+                            alt=""></a>
+                          </figure>
                         </p>
-                        </div>
-                        <div class="six columns last">
-                            <h5><strong>Text as a Graph - Standoff Properties</strong></h5>
-                            <ul class="even-left medium">
-                                <li>
-                                    Bei Text as a Graph wird jedes Wort durch einen Knoten repräsentiert, der mit einer NEXT-Kante mit dem nächsten Wort verbunden ist. Damit ergibt sich eine Wortkette (<a href="https://digitale-methodik.adwmainz.net/mod5/5c/slides/graphentechnologien/DTA.html">DTA-Beispiel</a>)
-                                </li>
-                                <li>
-                                    Annotationen werden an diese Wortkette mit anderen Kanten angelagert
-                                </li>
-                                <li>
-                                    Text und Annotationen müssen damit keiner Hierarchie mehr folgen (wie bei XML) sondern können auch überlappende und mehrdimensionale Annotationshierarchien enthalten.
-                                </li>
-                                <li>
-                                    Das Browserplugin <a href="https://argimenes.github.io/standoff-properties-editor/">SPEEDy</a> (<a href="https://github.com/argimenes/standoff-properties-editor">Github</a>) bietet mit <a href="resources/img/SPEEDy.png">Standoff-Properties</a> eine Editorkomponente für das Text-as-a-Graph Modell
-                                </li>
-                            </ul>
-                            <p class="right">
-                              <a href=http://134.176.70.65:10220/browser/>
-                                  <div class="row">
-                                      <div class="four columns">
-                                          <img class="pull-up" src="resources/img/neo4j_logo.svg"/>
-                                      </div>
-                                  </div>
-                              </a>
-                            </p>
-                      </div>
                     </div>
-                  </div>
-
-                  <div class="step">
-                    <h2>Vernetztes Wissen</h2>
-                      <h3 class="red up-25">
-                        Die Panama Papers
-                      </h3>
-                      <div class="row">
-                        <div class="six columns first">
-                          <a href="resources/img/Panama-Beispiel.svg">
-                              <img class="pull-up" src="resources/img/Panama-Beispiel.svg" width="100%" />
-                          </a>
-                            <p class="x-small down">
-                                Website: <a href="https://www.icij.org/investigations/panama-papers/the-power-players/">https://www.icij.org/investigations/panama-papers/the-power-players/</a>
-                            </p>
-                        </div>
-                        <div class="six columns last">
-                            <h5><strong>Die Panama Papers</strong></h5>
-                            <ul class="even-left medium">
-                                <li>
-                                    2,6 TB an Daten, das sind
-                                    11,5 Millionen E-Mails, Briefe, Faxnachrichten, Gründungsurkunden, Kreditverträge, Rechnungen und Bankauszüge als PDF-, Text- sowie Bilddateien aus den Jahren 1977 bis 2016
-                                </li>
-                                <li>
-                                    Material wurde mit OCR-Software analysiert, Entitäten und Metadaten extrahiert, ein Graphmodell erstellt, importiert und bereinigt
-                                </li>
-                                <li>
-                                    Die dabei auftretenden Herausforderungen entsprechen jenen in den digitalen Geisteswissenschaften
-                                </li>
-                            </ul>
-                            <p class="right">
-                              <a href=https://neo4j.com/graphgist/the-panamapapers-example-dataset-president-of-azerbaijan#_family_ties_via_last_name>
-                                  <div class="row">
-                                      <div class="four columns">
-                                          <img class="pull-up" src="resources/img/neo4j_logo.svg"/>
-                                      </div>
-                                  </div>
-                              </a>
-                            </p>
-                        </div>
-                      </div>
-                  </div>
-
-                  <div class="step">
-                    <h2>Vernetztes Wissen</h2>
-                      <h3 class="red up-25">
-                        Phasen der Digitalisierung
-                      </h3>
-                      <div class="row">
-                        <div class="six columns first">
-                          <a href="http://www.mgh.de/dmgh/diplomata/resolving/D_F_I_389">
-                              <img class="pull-up" src="resources/img/MGH-Beispielurkunde.png" width="100%" />
-                          </a>
-                          <p class="x-small down">
-                                  Quelle: <a href="http://www.mgh.de/dmgh/diplomata/resolving/D_F_I_389">MGH</a> |
-                                  <a href="resources/img/MGH-Registerseite.png">Registerseite</a> als Imagedigitalisat | <a href="http://www.regesta-imperii.de/id/1162-09-07_3_0_4_2_2_588_1146">Volltextregest</a>
+                    <div class="step">
+                        <h2>Chancen und digitale Quellenkritik</h2>
+                         <h3>Graf Robert II. von Flandern und Herzog Heinrich von Niederlothringen mit Regesten als Tabelle</h3>
+                          <p>
+                            <figure> <a href="resources/img/03-05-Regestentabelle.png"><img
+                              src="resources/img/03-05-Regestentabelle.png"
+                              alt=""></a>
+                            </figure>
                           </p>
-                        </div>
-                        <div class="six columns last">
-                            <h5><strong>Methodische Überlegungen</strong></h5>
-                            <ul class="even-left medium">
-                                <li>
-                                    Nach Imagedigitalisierung und Volltextdigitalisierung befinden uns am Beginn der dritten Phase der Digitalisierung in den Geisteswissenschaften
-                                </li>
-                                <li>
-                                    Im Zentrum steht dabei die Entität in der Quelle, die mit digitalen Methoden greifbar und über Dokumentengrenzen hinweg vernetzbar wird
-                                </li>
-                                <li>
-                                    Durch digitale Methoden steigt der empirische Anteil der geisteswissenschaftlichen Arbeit. Hermeneutische Teile werden fokussierter. Die Grenzbereiche sind eine methodische Herausforderung
-                                </li>
-                            </ul>
-                        </div>
                       </div>
-                  </div>
+                      <div class="step">
+                          <h2>Chancen und digitale Quellenkritik</h2>
+                           <h3>Vernetzung verschiedener Forschungsdatenrepositorien</h3>
+                            <p>
+                              <figure> <a href="resources/img/05-01-Schwager.png"><img
+                                src="resources/img/05-01-Schwager.svg"
+                                alt=""></a>
+                              </figure>
+                            </p>
+                        </div>
                   <div class="step">
                     <h2 class="down-50" style="font-size: 48px;">
                         Vernetztes Wissen
@@ -557,7 +247,7 @@ RETURN *;</code></pre>
                             <h5><strong>Fazit</strong></h5>
                             <ul class="even-left medium">
                                 <li>
-                                    Geisteswissenschaftliche Forschungsdaten sind in der Regel hochvernetzt
+                                    Geisteswissenschaftliche Forschungsdaten sind hochvernetzt
                                 </li>
                                 <li>
                                     Graphentechnologien sind sehr gut geeignet diese hochvernetzten Daten abzubilden und recherchierbar zu machen
@@ -571,6 +261,15 @@ RETURN *;</code></pre>
                         </div>
                       </div>
                   </div>
+                  <div class="step">
+                      <h3>Das Königsberger Brückenproblem</h3>
+                        <p>
+                          <figure> <a href="resources/img/01-01-Eulersche-Brücken.png"><img
+                            src="resources/img/01-01-Eulersche-Brücken.png"
+                            alt=""></a>
+                          </figure>
+                        </p>
+                    </div>
     </div>
 
     <!-- jquery -->
